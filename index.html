@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Valentine 💖</title>
+
+<style>
+body {
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: white;
+  font-family: Poppins, sans-serif;
+  margin: 0;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center; /* 🔥 THIS FIXES TEXT CENTER */
+}
+
+/* Button style */
+button {
+  padding: 15px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #ff4e50;
+  cursor: pointer;
+}
+
+/* Hide initially */
+#playingText,
+#video1,
+#finalSection {
+  display: none;
+  animation: fadeIn 1.5s forwards;
+}
+
+/* Playing text */
+#playingText {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+/* Final Section Center Fix */
+#finalSection {
+  text-align: center;
+  width: 100%;
+}
+
+/* VIDEO CENTER FIX */
+video {
+  width: 320px;
+  border-radius: 20px;
+  margin: 15px auto;
+  display: block;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h2 id="tapText">💖 Tap to Play My Love 💖</h2>
+
+<button id="playBtn">Play Video 🎵</button>
+
+<p id="playingText">🎶 Playing My love… 💞</p>
+
+<!-- VIDEO 1 -->
+<video id="video1">
+  <source src="./video1.mp4" type="video/mp4">
+</video>
+
+<!-- FINAL SECTION -->
+<div id="finalSection">
+
+  <h1>💖 I Love You Athan 💖</h1>
+
+  <p>💖 Happy Valentine’s Day 💖</p>
+
+  <!-- VIDEO 2 -->
+  <video id="video2" loop>
+    <source src="./video2.mp4" type="video/mp4">
+  </video>
+
+</div>
+
+<script>
+
+const btn = document.getElementById("playBtn");
+const video1 = document.getElementById("video1");
+const video2 = document.getElementById("video2");
+
+btn.addEventListener("click", function() {
+
+  btn.style.display = "none";
+  document.getElementById("tapText").style.display = "none";
+  document.getElementById("playingText").style.display = "block";
+  video1.style.display = "block";
+  video1.play();
+
+});
+
+video1.addEventListener("ended", function() {
+
+  document.getElementById("playingText").style.display = "none";
+  video1.style.display = "none";
+  document.getElementById("finalSection").style.display = "block";
+  video2.play();
+
+});
+
+</script>
+
+</body>
+</html>
